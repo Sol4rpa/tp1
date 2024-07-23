@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+char nombre;
+int nota=0,alumnos=0,aprobados=0,desaprobados=0;
+float promedio,suma;
+
+
+printf("Calculadora de Promedios \n");
+
+printf ("Ingrese el nombre del alumno ('F' para finalizar) \n ");
+fflush(stdin);
+scanf("%c",&nombre);
+
+if (nombre=='F'||nombre=='f')
+{
+    printf("Ha ingresado el caracter de finalizacion sin haber ingresado ninguna nota para inicializar el proceso ingrese otro caracter \n");
+    fflush(stdin);
+    scanf("%c",&nombre);
+
+}
+
+for(int i= 1;i<=4;i++)
+        {
+
+        printf("Ingrese la nota %d \n",i);
+        fflush(stdin);
+        scanf("%d",&nota);
+        suma=suma+nota;
+
+        }
+                 promedio=suma/4;
+                if(promedio<6&&promedio!=0)
+                {
+                printf("El alumno %c tiene un promedio de %f, el alumno esta desaprobado.\n",nombre,promedio);
+                fflush(stdin);
+                desaprobados=1;
+                alumnos++;
+
+                }
+                if(promedio>=6)
+                {
+                printf("El alumno %c tiene un promedio de %f, el alumno esta aprobado.\n",nombre,promedio);
+                fflush(stdin);
+                aprobados=1;
+                alumnos++;
+
+                }
+
+
+printf ("Ingrese el nombre del alumno ('F' para finalizar) \n ");
+    fflush(stdin);
+    scanf("%c",&nombre);
+
+    while(nombre!='F' && nombre!='f')
+    {
+            nota=0;
+            suma=0;
+
+        for(int i= 1;i<=4;i++)
+        {
+
+        printf("Ingrese la nota %d \n",i);
+        fflush(stdin);
+        scanf("%d",&nota);
+        suma=suma+nota;
+
+        }
+         promedio=suma/4;
+                if(promedio<6&&promedio!=0)
+                {
+                printf("El alumno %c tiene un promedio de %f, el alumno esta desaprobado.\n",nombre,promedio);
+                fflush(stdin);
+                desaprobados++;
+                alumnos++;
+
+                }
+                if(promedio>=6)
+                {
+                printf("El alumno %c tiene un promedio de %f, el alumno esta aprobado.\n",nombre,promedio);
+                fflush(stdin);
+                aprobados++;
+                alumnos++;
+
+                }
+
+
+
+    printf ("Ingrese el nombre del alumno ('F' para finalizar) \n ");
+    fflush(stdin);
+    scanf("%c",&nombre);
+    }
+
+
+printf("La cantidad de alumnos ingresados es %d, %d aprobados y %d desaprobados.",alumnos,aprobados,desaprobados);
+
+}
